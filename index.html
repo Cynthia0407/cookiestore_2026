@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://www.gstatic.com; style-src 'unsafe-inline'; connect-src https://*.googleapis.com https://*.firebaseio.com wss://*.firebaseio.com https://*.firebasedatabase.app wss://*.firebasedatabase.app https://api.dahandin.com; img-src 'self' data:; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"><title>우리 반 쿠키 상점 · 보호 버전</title><style>
+:root{--ink:#25372f;--muted:#60716a;--green:#176849;--wash:#f4f7f1;--line:#dce6da;--accent:#e7b75b;--danger:#a53535}*{box-sizing:border-box}body{margin:0;background:var(--wash);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:white;color:var(--ink);font-weight:650}button:hover{border-color:var(--green)}button:disabled{opacity:.5;cursor:wait}.primary{background:var(--green);color:white;border-color:var(--green)}.danger{color:var(--danger)}.quiet{background:transparent}input,textarea,select{width:100%;padding:10px 12px;border:1px solid #b9cabc;border-radius:9px;background:white;color:var(--ink)}input[type=checkbox]{width:auto}input:focus,textarea:focus,button:focus-visible{outline:3px solid #d3e6c2;outline-offset:2px}label{display:block;font-weight:650;margin:12px 0 5px}small,.muted{color:var(--muted)}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(25px,4vw,36px);line-height:1.3}h2{font-size:23px}h3{font-size:18px}header{background:#e8eee0;border-bottom:1px solid var(--line)}.top{max-width:1250px;margin:auto;padding:32px 24px;display:flex;justify-content:space-between;gap:20px;align-items:center}.eyebrow{font-size:12px;letter-spacing:.16em;font-weight:800;color:var(--green);margin-bottom:10px}.top p{margin:8px 0 0}.wrap{max-width:1250px;margin:28px auto;padding:0 24px}.panel,.card{background:white;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 5px 20px #193a2310}.login{max-width:650px;margin:32px auto}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row>*{flex:0 1 auto}.grow{flex:1}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:16px}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:20px}.notice{border-left:4px solid var(--accent);background:#fff9e9;padding:14px 18px;border-radius:8px;margin:16px 0}.ok{border-color:var(--green);background:#edf7ee}.pill{font-size:13px;border-radius:30px;padding:6px 12px;background:#edf3e7;white-space:nowrap}.toolbar{margin-bottom:20px;gap:12px}.tabs{margin:18px 0}.tabs button[aria-pressed=true]{background:var(--green);color:white}.day{flex:1!important;padding:9px 4px}.day[aria-pressed=true]{background:#e1edd5;border-color:var(--green);color:var(--green)}.card h3{margin:0}.card label{font-size:14px}.card .row{margin-top:10px}.balance{font-size:24px;font-weight:800;color:var(--green)}.stat{font-size:30px;font-weight:800}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:14px;text-align:left}td,th{padding:12px 10px;border-bottom:1px solid var(--line);white-space:nowrap}th{color:var(--muted);font-weight:600}.empty{text-align:center;padding:42px 16px;color:var(--muted)}details{margin-top:18px}summary{cursor:pointer;font-weight:650}dialog{border:1px solid var(--line);border-radius:18px;padding:26px;max-width:650px;width:calc(100% - 32px);max-height:85vh;overflow:auto}dialog::backdrop{background:#102b2066}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.modalhead h2{margin:0}#message{position:sticky;top:10px;z-index:20;white-space:pre-wrap}#message:empty{display:none}#privacyScreen{position:fixed;inset:0;background:var(--wash);z-index:100;display:grid;place-items:center;text-align:center;padding:28px}[hidden]{display:none!important}.menuitem{display:grid;grid-template-columns:1fr 90px auto;gap:8px;margin-bottom:12px}.bar{background:#e9efdf;border-radius:5px;height:8px}.bar>span{display:block;height:8px;border-radius:5px;background:var(--green)}.footer{font-size:13px;color:var(--muted);margin:30px 0}.code{font:13px/1.6 ui-monospace,monospace;overflow-wrap:anywhere}a{color:var(--green)}@media(max-width:700px){.top{padding:24px 18px;align-items:flex-start;flex-direction:column}.wrap{padding:0 16px}.twocol{grid-template-columns:1fr}.panel,.card{padding:18px}.menuitem{grid-template-columns:1fr 75px auto}}@media print{header,.toolbar,.tabs,button,.footer,#loginPanel,#message,#privacyScreen{display:none!important}.panel,.card{box-shadow:none;break-inside:avoid}body{background:white}}
+</style></head>
+<body><header><div class="top"><div><div class="eyebrow">COOKIE STORE / PRIVATE CLASSROOM</div><h1>우리 반 쿠키 상점</h1><p>차곡차곡 모은 쿠키로, 즐거운 학급 상점을 열어요.</p></div><div class="row"><span id="account" class="pill">로그인 필요</span><button id="logout" hidden>로그아웃</button></div></div></header>
+<main class="wrap"><div id="message" role="status" aria-live="polite"></div>
+<div id="bootWarning" class="notice">화면을 준비하고 있습니다. 이 문구가 계속 보이면 인터넷 연결을 확인하고, HTML을 GitHub Pages 또는 Netlify의 HTTPS 주소에서 열어 주세요.</div>
+<section id="loginPanel" class="panel login"><div class="eyebrow">01 / 승인 계정 로그인</div><h2>우리 학급만 사용하는 공간</h2><p class="muted">Firebase 콘솔에서 만든 선생님 계정으로 로그인해 주세요. 학생 명단과 기록은 로그인 후 서버가 접근을 허용할 때 불러옵니다.</p>
+<form id="loginForm"><label for="email">선생님 이메일</label><input id="email" type="email" autocomplete="username" required maxlength="254"><label for="password">비밀번호</label><input id="password" data-secret type="password" autocomplete="current-password" required maxlength="128"><p><button class="primary" type="submit">로그인하고 학급 열기</button></p>
+<details><summary>처음 한 번: Firebase 연결 설정</summary><p class="muted">Firebase 프로젝트 설정의 웹 앱 구성(JSON)을 붙여넣으세요. 비밀 다했니 키를 넣는 곳이 아닙니다. 같은 브라우저에서는 연결 설정만 기억합니다.</p><label for="firebaseConfig">Firebase 설정 JSON</label><textarea id="firebaseConfig" class="code" rows="7" spellcheck="false" placeholder='{"apiKey":"Firebase 웹 API 키", "projectId":"study-tool-web", "appId":"웹 앱 ID"}'></textarea><button id="forgetConfig" type="button">이 기기의 연결 설정 지우기</button></details></form>
+<div class="notice">처음 설치할 때는 함께 제공한 안내서에 따라 <b>Firebase 보안 규칙도 반드시 적용</b>해야 합니다. HTML 교체만으로 기존 공개 데이터가 보호되지는 않습니다.</div><small>새로고침·탭 종료 시 재로그인 · 15분 미사용 시 로그아웃 · 학생 정보는 브라우저 저장소에 보관하지 않음</small></section>
+<section id="workspace" hidden>
+<div class="row toolbar"><div class="grow"><h2 id="storeTitle" data-sensitive>쿠키 상점</h2><span id="storeStatus" class="muted">불러오는 중</span></div><button id="cookieSettings">상점·명단·인증키</button><button id="cookieReload">서버 새로고침</button><button id="cookieBackup">기록 백업</button></div>
+<div id="legacyNotice" class="notice" hidden>이전 버전이 저장한 인증키 또는 명단 원문이 남아 있습니다. 아래 버튼으로 이 두 필드만 삭제할 수 있습니다. 판매·설정 저장 시에도 이 필드들은 제거됩니다. <button id="cleanLegacy">이전 인증키·명단 원문 제거</button></div>
+<div class="row toolbar"><label for="workerName" style="margin:0">현재 담당자</label><input id="workerName" data-secret style="max-width:200px" placeholder="선생님 또는 담당 학생 이름" maxlength="50"><small>장부 표시용 이름입니다. 학생 이름 입력만으로 접근 권한이 생기지는 않습니다.</small></div>
+<div class="row tabs"><button id="tabSale" aria-pressed="true">상점</button><button id="tabLedger" aria-pressed="false">판매 장부</button><button id="tabStats" aria-pressed="false">통계</button><button id="tabMenu" aria-pressed="false">메뉴 관리</button></div>
+<section id="salePanel"><label for="studentSearch">학생 찾기</label><input id="studentSearch" data-secret placeholder="이름 또는 번호" style="max-width:350px;margin-bottom:18px"><div id="cookieGrid" class="grid" data-sensitive></div></section>
+<section id="ledgerPanel" hidden><div class="row toolbar"><h2 class="grow">판매 장부</h2><button id="csvExport">CSV 내보내기</button></div><input id="ledgerSearch" data-secret placeholder="학생·간식·담당자 검색"><div id="ledgerTable" class="tablewrap panel" data-sensitive></div></section>
+<section id="statsPanel" hidden><div id="statsContent" data-sensitive></div></section>
+<section id="menuPanel" hidden><div class="row toolbar"><h2 class="grow">메뉴와 노출 순서</h2><button id="addMenu">새 메뉴 추가</button></div><div id="menuList" data-sensitive></div><small>변경은 저장 버튼을 누르면 서버에 반영됩니다. 다른 기기의 변경과 겹치면 다시 불러오도록 안내합니다.</small><p><button id="saveMenu" class="primary">메뉴 저장</button><button id="discardMenu">편집 취소</button></p></section>
+</section><p class="footer">학급 보호 버전 · 2026.10.27 · 다했니 키는 입력한 탭의 메모리에서만 사용합니다. 공용 기기에서는 사용 후 로그아웃하세요.</p></main>
+
+<dialog id="cookieDialog"><div class="modalhead"><h2>상점 설정</h2><button data-close>닫기</button></div><p class="muted">현재 학급: yh202632. 기존 데이터 경로를 그대로 사용합니다.</p><label for="storeName">상점 이름</label><input id="storeName" data-secret maxlength="80"><p><button id="saveStore">상점 이름 저장</button></p><hr>
+<h3>다했니에서 학생·잔액 가져오기</h3><p class="muted">인증키와 붙여넣은 명단 원문은 클라우드에 저장하지 않습니다. 기존 학생의 구매 차감 기록은 유지합니다. 다했니의 실제 쿠키를 차감하는 기능은 없습니다.</p><label for="dahandinKey">다했니 API Key</label><input id="dahandinKey" data-secret type="password" autocomplete="off" spellcheck="false"><label for="dahandinRoster">학생 코드가 포함된 명단</label><textarea id="dahandinRoster" data-secret rows="4" placeholder="한 줄에 한 학생. 각 학생의 9자리 코드가 필요합니다."></textarea><p><button id="importDahandin" class="primary">조회한 학생을 추가·갱신</button></p><hr>
+<h3>학생 직접 추가</h3><div class="row"><div class="grow"><label for="manualName">이름</label><input id="manualName" data-secret maxlength="50"></div><div><label for="manualNumber">번호</label><input id="manualNumber" data-secret type="number" min="1" max="999"></div><div><label for="manualBalance">쿠키</label><input id="manualBalance" data-secret type="number" min="0" max="100000"></div></div><p><button id="manualAdd">학생 추가</button></p><hr>
+<h3>정산 후 구매 차감 초기화</h3><p class="muted">다했니에서 차감을 별도로 처리한 후 사용하세요. 장부는 유지하고, 이 앱의 구매 차감 누적(spent)을 0으로 바꿉니다. 이후 다했니에서 최신 잔액을 가져오세요.</p><button id="settleReset" class="danger">전체 구매 차감 누적 초기화</button>
+</dialog>
+<dialog id="purchaseDialog"><div class="modalhead"><h2 id="purchaseTitle" data-sensitive></h2><button data-close>닫기</button></div><p id="purchaseBalance" data-sensitive class="balance"></p><div id="purchaseMenus" class="grid" data-sensitive></div></dialog>
+<div id="privacyScreen" hidden><div><h2>학급 화면을 가렸습니다.</h2><p>이 탭으로 돌아오면 계속 사용할 수 있습니다.</p></div></div>
+<script type="module">
+import {initializeApp,deleteApp} from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js';
+import {getAuth,setPersistence,inMemoryPersistence,signInWithEmailAndPassword,onAuthStateChanged,signOut} from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js';
+import {getDatabase,ref,onValue,runTransaction,get} from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-database.js';
+
+const $ = id => document.getElementById(id);
+const PROJECT = 'study-tool-web';
+const DATABASE_URL = 'https://study-tool-web-default-rtdb.firebaseio.com';
+const KEY = 'classroom_private_firebase_config_v1';
+let auth = null, db = null, firebaseApp = null, session = null, stopData = null, busy = false, epoch = 0;
+let lastActivity = Date.now(), hiddenAt = null, lastIdentity = null;
+const IDLE_MS = 15 * 60 * 1000;
+function el(tag, attrs = {}, children = []) {
+  const node = document.createElement(tag);
+  for (const [key, value] of Object.entries(attrs)) {
+    if (key.startsWith('on') && typeof value === 'function') node.addEventListener(key.slice(2), value);
+    else if (key === 'text') node.textContent = value;
+    else if (key === 'class') node.className = value;
+    else if (key in node) node[key] = value;
+    else node.setAttribute(key, value);
+  }
+  for (const child of Array.isArray(children) ? children : [children]) {
+    if (child !== null && child !== undefined) node.append(typeof child === 'string' ? document.createTextNode(child) : child);
+  }
+  return node;
+}
+function button(text, action, kind = '') { return el('button', {type:'button', text, class:kind, onclick:()=>safe(action)}); }
+function field(label, node) { return el('div',{},[el('label',{text:label, htmlFor:node.id}),node]); }
+function announce(text, error = false) { $('message').textContent = text; $('message').className = 'notice' + (error ? '' : ' ok'); }
+function errorText(error) {
+  const code = String(error?.code || '');
+  if (/permission|PERMISSION|denied/i.test(code + String(error?.message || ''))) return '접근 권한이 없습니다. 승인 계정 UID와 Firebase 규칙을 확인해 주세요. 저장은 완료되지 않았습니다.';
+  if (/invalid-credential|wrong-password|user-not-found|invalid-email/.test(code)) return '로그인 정보를 확인해 주세요. 계정이 없거나 비밀번호가 다를 수 있습니다.';
+  if (/too-many/.test(code)) return '시도가 많습니다. 잠시 후 다시 로그인해 주세요.';
+  if (/network|unavailable|timeout/.test(code)) return '연결을 확인해 주세요. 저장 완료 표시가 없으면 저장되지 않은 상태입니다.';
+  if (/operation-not-allowed/.test(code)) return 'Firebase 콘솔에서 이메일/비밀번호 로그인을 먼저 켜 주세요.';
+  if (/api-key|invalid-app|configuration/.test(code)) return 'Firebase 웹 앱 설정을 다시 확인해 주세요.';
+  return error?.userMessage || '작업을 완료하지 못했습니다. 연결과 입력 내용을 확인하고 다시 시도해 주세요.';
+}
+function fail(text) { const error = new Error(text); error.userMessage = text; throw error; }
+function requireSession() { if (!auth?.currentUser || !session || Date.now()-lastActivity >= IDLE_MS) fail('다시 로그인해 주세요.'); }
+function disableActions(disabled) { document.querySelectorAll('button').forEach(b=>b.disabled=disabled); }
+async function safe(action) {
+  if (busy) return;
+  busy = true; disableActions(true);
+  try { await action(); }
+  catch (error) { announce(errorText(error), true); }
+  finally { busy = false; disableActions(false); }
+}
+function currentUserIs(uid, generation) { return auth?.currentUser?.uid === uid && session?.uid === uid && epoch === generation; }
+function clearSensitiveUI() {
+  document.querySelectorAll('[data-sensitive]').forEach(node => node.replaceChildren());
+  document.querySelectorAll('[data-secret]').forEach(node => node.value = '');
+  document.querySelectorAll('dialog[open]').forEach(d=>d.close());
+  clearAppData();
+}
+function lockScreen(message = '') {
+  epoch++; if (stopData) { stopData(); stopData=null; }
+  session = null; clearSensitiveUI();
+  $('workspace').hidden = true; $('loginPanel').hidden = false;
+  $('account').textContent = '로그인 필요'; $('logout').hidden = true;
+  if(message) announce(message);
+}
+async function logout(message = '로그아웃했습니다. 학생 정보와 인증키를 화면에서 지웠습니다.') {
+  lockScreen(message);const oldAuth=auth,oldApp=firebaseApp;auth=null;db=null;firebaseApp=null;lastIdentity=null;
+  try {if(oldAuth)await signOut(oldAuth);} finally {if(oldApp)await deleteApp(oldApp);}
+}
+function validatedConfig(text) {
+  let cfg; try {cfg=JSON.parse(text);} catch {fail('Firebase 설정은 JSON 형식으로 붙여넣어 주세요.');}
+  if (!cfg || cfg.projectId !== PROJECT || typeof cfg.apiKey !== 'string' || !/^AIza[\w-]{20,}$/.test(cfg.apiKey)) fail('study-tool-web 프로젝트의 Firebase 웹 앱 설정을 입력해 주세요. 다했니 키와 다릅니다.');
+  if (cfg.databaseURL && cfg.databaseURL.replace(/\/$/,'') !== DATABASE_URL) fail('기존 학급 데이터베이스 주소와 다릅니다. 설정을 확인해 주세요.');
+  if (cfg.authDomain && cfg.authDomain !== PROJECT+'.firebaseapp.com') fail('Firebase 인증 도메인을 확인해 주세요.');
+  return {apiKey:cfg.apiKey, projectId:PROJECT, authDomain:PROJECT+'.firebaseapp.com', databaseURL:DATABASE_URL, ...(cfg.appId ? {appId:String(cfg.appId)} : {})};
+}
+async function connectAndLogin(event) {
+  event.preventDefault();
+  await safe(async()=> {
+    const cfg = validatedConfig($('firebaseConfig').value);
+    const email = $('email').value.trim(), password = $('password').value;
+    if(!email || !password) fail('이메일과 비밀번호를 입력해 주세요.');
+    if(!auth) {
+      const app=initializeApp(cfg);firebaseApp=app; auth=getAuth(app);
+      await setPersistence(auth, inMemoryPersistence);
+      db=makeDatabase(app);
+      onAuthStateChanged(auth, user=> { if(!user && session) lockScreen('로그인이 종료됐습니다. 다시 로그인해 주세요.'); });
+      lastIdentity=JSON.stringify(cfg);
+    } else if(lastIdentity !== JSON.stringify(cfg)) fail('다른 Firebase 설정을 적용하려면 페이지를 새로고침해 주세요.');
+    localStorage.setItem(KEY, JSON.stringify(cfg)); // Public Firebase configuration only.
+    let credential;
+    try { credential = await signInWithEmailAndPassword(auth,email,password); }
+    finally { $('password').value=''; }
+    lastActivity = Date.now(); session = credential.user; epoch++;
+    $('account').textContent = '로그인: '+credential.user.email;
+    $('loginPanel').hidden=true; $('workspace').hidden=false; $('logout').hidden=false;
+    $('email').value='';
+    await startApp();
+  });
+}
+function download(name, value, type = 'application/json') {
+  requireSession();
+  const blob = new Blob([typeof value==='string'?value:JSON.stringify(value,null,2)],{type});
+  const url=URL.createObjectURL(blob), a=el('a',{href:url,download:name});
+  document.body.append(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function csvCell(value) { let s=String(value??''); if (/^[\s]*[=+\-@\t\r]/.test(s)) s="'"+s; return '"'+s.replaceAll('"','""')+'"'; }
+function tidyText(value, max=100) { return String(value??'').trim().slice(0,max); }
+function nonnegative(value) { const n=Number(value);return Number.isFinite(n)?Math.max(0,n):0; }
+function openDialog(id) { requireSession(); $(id).showModal(); }
+function setupCommon() {
+  $('bootWarning').hidden=true;
+  try { const saved=localStorage.getItem(KEY); if(saved) $('firebaseConfig').value=JSON.stringify(validatedConfig(saved),null,2); } catch {}
+  $('loginForm').addEventListener('submit',connectAndLogin);
+  $('logout').addEventListener('click',()=>safe(()=>logout()));
+  $('forgetConfig').addEventListener('click',()=> {localStorage.removeItem(KEY);$('firebaseConfig').value='';announce('이 브라우저의 Firebase 연결 설정을 지웠습니다.');});
+  // Remove old versions' browser caches. No student data is cached by this version.
+  for(const key of ['local_students','cfg_api_key','cfg_admin_pwd','cookie_active_class_id','cookie_active_firebase_url']) localStorage.removeItem(key);
+  for(const name of ['pointerdown','keydown']) document.addEventListener(name,()=> {
+    if(session && Date.now()-lastActivity >= IDLE_MS) { void logout('15분 동안 사용하지 않아 로그아웃했습니다.'); return; }
+    lastActivity=Date.now();
+  });
+  setInterval(()=> {if(session && Date.now()-lastActivity>=IDLE_MS) void logout('15분 동안 사용하지 않아 로그아웃했습니다.');},15000);
+  document.addEventListener('visibilitychange',()=> {
+    if(document.hidden) { hiddenAt=Date.now(); $('privacyScreen').hidden=false; document.querySelectorAll('[data-secret]').forEach(n=>n.value=''); }
+    else { if(session && Date.now()-lastActivity>=IDLE_MS) void logout('오래 자리를 비워 로그아웃했습니다.'); $('privacyScreen').hidden=true; hiddenAt=null; }
+  });
+  window.addEventListener('pagehide',()=> { lockScreen(); if(auth) void signOut(auth); });
+  window.addEventListener('pageshow',event=> {if(event.persisted) location.reload();});
+  document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
+}
+
+
+const CLASS_PATH='classes/yh202632';
+const PRESET=[{name:'마이쭈',price:1,icon:'🍬',enabled:true},{name:'초코송이',price:2,icon:'🍄',enabled:true},{name:'음료수',price:3,icon:'🧃',enabled:true},{name:'자리바꾸기',price:10,icon:'🪑',enabled:true}];
+let store=null,ready=false,serverConnected=false,storeExists=false,selectedId=null,menuDraft=null,menuBase=null;
+function makeDatabase(app){return getDatabase(app,DATABASE_URL);}
+function asList(value){return Array.isArray(value)?value.filter(v=>v!=null):value&&typeof value==='object'?Object.values(value).filter(v=>v!=null):[];}
+function normalizeStore(raw){
+  const source=raw&&typeof raw==='object'?raw:{};
+  const list=asList(source.students).map(s=>({id:tidyText(s.id,80),name:tidyText(s.name,50),total:nonnegative(s.total),current:nonnegative(s.current),spent:nonnegative(s.spent)}));
+  return {schemaVersion:2,storeName:tidyText(source.storeName||'우리 반 쿠키 상점',80),students:list,
+    menu:(source.menu==null?(source.schemaVersion===2?[]:PRESET):asList(source.menu)).map(m=>({name:tidyText(m.name,80),price:Math.max(1,Math.floor(nonnegative(m.price))),icon:tidyText(m.icon||'🍪',20),enabled:m.enabled!==false})),
+    ledgerHistory:asList(source.ledgerHistory).map(r=>({id:tidyText(r.id,100),time:tidyText(r.time,40),timestamp:tidyText(r.timestamp,50),worker:tidyText(r.worker,50),role:tidyText(r.role,20),studentId:tidyText(r.studentId,80),studentName:tidyText(r.studentName,50),item:tidyText(r.item,100),price:Number(r.price)||0,type:tidyText(r.type,20),...(r.refundOf?{refundOf:tidyText(r.refundOf,100)}:{})})),
+    updatedAt:tidyText(source.updatedAt,50)};
+}
+function clearAppData(){store=null;ready=false;serverConnected=false;storeExists=false;selectedId=null;menuDraft=null;menuBase=null;$('legacyNotice').hidden=true;$('storeStatus').textContent='로그인 필요';}
+function requireStore(){requireSession();if(!ready||!store||!serverConnected)fail('서버 연결을 확인한 후 다시 시도해 주세요.');}
+async function startApp(){
+  requireSession();const uid=session.uid,generation=epoch;
+  $('storeStatus').textContent='서버에서 확인 중…';
+  const connectionStop=onValue(ref(db,'.info/connected'),snapshot=>{if(currentUserIs(uid,generation)){serverConnected=snapshot.val()===true;if(!serverConnected)$('storeStatus').textContent='연결이 끊겼습니다. 연결 복구 전 새 작업을 시작할 수 없습니다.';else if(ready)$('storeStatus').textContent='실시간 연결 · '+store.students.length+'명';}});
+  const dataStop=onValue(ref(db,CLASS_PATH),snapshot=>{
+    if(!currentUserIs(uid,generation))return;
+    const raw=snapshot.val();storeExists=snapshot.exists();store=normalizeStore(raw);ready=true;
+    $('legacyNotice').hidden=!(raw&&(Object.hasOwn(raw,'apiKey')||Object.hasOwn(raw,'studentsText')));
+    $('storeStatus').textContent=storeExists?'실시간 연결 · '+store.students.length+'명':'아직 학급 데이터가 없습니다. 상점 설정에서 초기화하세요.';
+    renderStore();announce('승인 계정으로 학급 데이터를 불러왔습니다.');
+  },async error=>{if(currentUserIs(uid,generation)){await logout();announce(errorText(error),true);}});
+  stopData=()=>{connectionStop();dataStop();};
+}
+async function mutateStore(change,allowCreate=false){
+  requireStore();const uid=session.uid,generation=epoch;
+  const result=await runTransaction(ref(db,CLASS_PATH),raw=>{
+    if(!currentUserIs(uid,generation))return;
+    if(raw===null&&!allowCreate)return;
+    const next=normalizeStore(raw);change(next);next.updatedAt=new Date().toISOString();
+    return next; // Legacy apiKey/studentsText are intentionally never copied back.
+  },{applyLocally:false});
+  if(!result.committed)fail('저장하지 못했습니다. 다시 로그인하거나 서버 새로고침 후 시도해 주세요.');
+  return currentUserIs(uid,generation);
+}
+function renderStore(){
+  $('storeTitle').textContent=store.storeName;
+  renderStudents();renderLedger();renderStats();
+  if(!menuDraft)renderMenu();
+  if($('purchaseDialog').open&&selectedId)renderPurchase();
+}
+function switchTab(name){for(const [key,label] of [['sale','Sale'],['ledger','Ledger'],['stats','Stats'],['menu','Menu']]){$(key+'Panel').hidden=key!==name;$('tab'+label).setAttribute('aria-pressed',String(key===name));}}
+function renderStudents(){
+  const grid=$('cookieGrid'),q=$('studentSearch').value.toLowerCase();grid.replaceChildren();
+  const list=store.students.filter(s=>s.name.toLowerCase().includes(q)||String(s.id).includes(q));
+  if(!list.length)grid.append(el('p',{class:'empty',text:store.students.length?'검색 결과가 없습니다.':'아직 학생 명단이 없습니다. 상점·명단·인증키에서 추가해 주세요.'}));
+  list.forEach(s=>grid.append(el('article',{class:'card'},[el('h3',{text:s.id+'. '+s.name}),el('p',{class:'balance',text:'🍪 '+s.current}),el('p',{class:'muted',text:'기준 잔액 '+s.total+' · 구매 차감 '+s.spent}),button('간식 고르기',()=>{selectedId=s.id;renderPurchase();openDialog('purchaseDialog');},'primary')])));
+}
+function renderPurchase(){
+  const s=store.students.find(s=>s.id===selectedId);if(!s){$('purchaseDialog').close();return;}
+  $('purchaseTitle').textContent=s.name+'의 간식';$('purchaseBalance').textContent='사용 가능 🍪 '+s.current;
+  const grid=$('purchaseMenus');grid.replaceChildren();
+  store.menu.forEach((m,index)=>{if(m.enabled)grid.append(button(m.icon+' '+m.name+' · '+m.price+'🍪',()=>purchase(selectedId,index)));});
+  if(!grid.childNodes.length)grid.append(el('p',{class:'muted',text:'판매 중인 메뉴가 없습니다.'}));
+}
+async function purchase(id,menuIndex){
+  requireStore();const chosen={...store.menu[menuIndex]},purchaseId=crypto.randomUUID(),worker=tidyText($('workerName').value||'선생님',50),when=new Date();
+  const ok=await mutateStore(next=>{
+    const s=next.students.find(s=>s.id===id),m=next.menu[menuIndex];
+    if(!s||!m||!m.enabled||m.name!==chosen.name||m.price!==chosen.price)fail('메뉴 또는 학생 정보가 바뀌었습니다. 다시 선택해 주세요.');
+    if(s.current<m.price)fail('쿠키가 부족합니다.');
+    s.current-=m.price;s.spent+=m.price;
+    next.ledgerHistory.unshift({id:purchaseId,time:when.toLocaleString('ko-KR'),timestamp:when.toISOString(),worker,role:'approved',studentId:s.id,studentName:s.name,item:m.name,price:m.price,type:'구매'});
+  });
+  if(ok){$('purchaseDialog').close();announce('구매와 잔액 변경을 서버에 저장했습니다.');}
+}
+function isNewPurchaseId(id){return /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(id);}
+async function refundPurchase(id){
+  requireStore();if(!isNewPurchaseId(id))fail('이전 버전 장부는 자동 환불할 수 없습니다. 기존 환불 내역과 정산 여부를 먼저 확인해 주세요.');const entry=store.ledgerHistory.find(r=>r.id===id);if(!entry)fail('구매 기록을 찾지 못했습니다.');
+  if(!confirm(entry.studentName+' 학생의 '+entry.item+' 구매 '+entry.price+'쿠키를 환불할까요?'))return;
+  const rid=crypto.randomUUID(),when=new Date(),worker=tidyText($('workerName').value||'선생님',50);
+  const ok=await mutateStore(next=>{
+    const original=next.ledgerHistory.find(r=>r.id===id&&r.type==='구매');
+    if(!original||next.ledgerHistory.some(r=>r.refundOf===id))fail('이미 환불됐거나 유효하지 않은 구매 기록입니다.');
+    const s=next.students.find(s=>s.id===original.studentId);if(!s)fail('학생 명단이 바뀌어 환불할 수 없습니다.');
+    if(s.spent<original.price)fail('정산·초기화가 반영된 기록입니다. 잔액을 확인한 뒤 별도로 정정해 주세요.');
+    s.current+=original.price;s.spent-=original.price;
+    next.ledgerHistory.unshift({id:rid,time:when.toLocaleString('ko-KR'),timestamp:when.toISOString(),worker,role:'approved',studentId:s.id,studentName:s.name,item:original.item+' 환불',price:-original.price,type:'환불',refundOf:id});
+  });if(ok)announce('환불 기록과 잔액을 서버에 저장했습니다.');
+}
+function renderLedger(){
+  const box=$('ledgerTable'),table=el('table'),head=el('tr');
+  ['일시','담당자','학생','내역','쿠키','처리'].forEach(t=>head.append(el('th',{text:t})));table.append(el('thead',{},head));
+  const body=el('tbody'),q=$('ledgerSearch').value.toLowerCase(),refunded=new Set(store.ledgerHistory.map(r=>r.refundOf));
+  store.ledgerHistory.filter(r=>[r.studentName,r.item,r.worker].join(' ').toLowerCase().includes(q)).forEach(r=>{
+    const tr=el('tr');[r.timestamp?new Date(r.timestamp).toLocaleString('ko-KR'):r.time,r.worker,r.studentName,r.item,String(r.price)].forEach(t=>tr.append(el('td',{text:t})));
+    const cell=el('td');if(r.type==='구매'&&isNewPurchaseId(r.id)&&!refunded.has(r.id))cell.append(button('환불',()=>refundPurchase(r.id)));else cell.textContent=r.type==='구매'?(isNewPurchaseId(r.id)?'환불 완료':'이전 버전 기록'):r.type;tr.append(cell);body.append(tr);
+  });
+  table.append(body);box.replaceChildren(table);if(!body.childNodes.length)box.append(el('p',{class:'empty',text:'표시할 장부 기록이 없습니다.'}));
+}
+function renderStats(){
+  const purchases=store.ledgerHistory.filter(r=>r.type==='구매'),refunds=store.ledgerHistory.filter(r=>r.type==='환불');
+  const net=store.ledgerHistory.reduce((a,r)=>a+r.price,0),root=$('statsContent');
+  const cards=el('div',{class:'grid'},[['구매 건수',purchases.length],['환불 건수',refunds.length],['순 판매 쿠키',net],['등록 학생',store.students.length]].map(([label,value])=>el('article',{class:'card'},[el('p',{class:'muted',text:label}),el('div',{class:'stat',text:String(value)})])));
+  const tally=new Map();purchases.forEach(r=>tally.set(r.item,(tally.get(r.item)||0)+1));const max=Math.max(1,...tally.values());
+  const list=el('div',{class:'panel',style:'margin-top:20px'},el('h3',{text:'간식별 구매 건수 (환불 전)'}));
+  [...tally].sort((a,b)=>b[1]-a[1]).slice(0,10).forEach(([name,count])=>list.append(el('div',{style:'margin:14px 0'},[el('p',{text:name+' · '+count+'건'}),el('div',{class:'bar'},el('span',{style:'width:'+Math.round(count/max*100)+'%'}))])));
+  root.replaceChildren(cards,list);
+}
+function renderMenu(){
+  const box=$('menuList');box.replaceChildren();const list=menuDraft??store.menu;
+  list.forEach((m,index)=>{
+    const name=el('input',{value:m.name,maxLength:80,'aria-label':'간식 이름'}),price=el('input',{type:'number',min:1,max:500,value:m.price,'aria-label':'가격'}),enabled=el('input',{type:'checkbox',checked:m.enabled,'aria-label':'메뉴 노출'}),icon=el('input',{value:m.icon,maxLength:20,'aria-label':'아이콘',style:'max-width:100px'});
+    const change=(key,value)=>{try{beginMenuEdit();menuDraft[index][key]=value;}catch(error){announce(errorText(error),true);}};
+    name.oninput=()=>change('name',name.value);price.oninput=()=>change('price',Number(price.value));enabled.onchange=()=>change('enabled',enabled.checked);icon.oninput=()=>change('icon',icon.value);
+    box.append(el('article',{class:'card',style:'margin-bottom:12px'},[el('div',{class:'menuitem'},[name,price,button('삭제',()=>{beginMenuEdit();menuDraft.splice(index,1);renderMenu();},'danger')]),el('div',{class:'row'},[icon,el('label',{style:'margin:0'},[enabled,' 판매 메뉴에 표시']),button('위로',()=>moveMenu(index,-1)),button('아래로',()=>moveMenu(index,1))])]));
+  });
+}
+function beginMenuEdit(){requireStore();if(!menuDraft){menuBase=JSON.stringify(store.menu);menuDraft=structuredClone(store.menu);}}
+function moveMenu(index,dir){beginMenuEdit();const target=index+dir;if(target<0||target>=menuDraft.length)return;[menuDraft[index],menuDraft[target]]=[menuDraft[target],menuDraft[index]];renderMenu();}
+async function saveMenu(){
+  requireStore();if(!menuDraft){announce('변경한 메뉴가 없습니다.');return;}
+  const list=structuredClone(menuDraft);if(list.length>100||list.some(m=>!m.name.trim()||!Number.isInteger(m.price)||m.price<1||m.price>500))fail('이름과 1~500 사이 정수 가격을 확인해 주세요. 메뉴는 최대 100개입니다.');
+  const ok=await mutateStore(next=>{if(JSON.stringify(next.menu)!==menuBase)fail('다른 기기에서 메뉴를 수정했습니다. 편집 취소 후 다시 불러와 주세요.');next.menu=list.map(m=>({...m,name:m.name.trim()}));});
+  if(ok){menuDraft=null;menuBase=null;renderMenu();announce('메뉴를 서버에 저장했습니다.');}
+}
+async function saveStoreName(){
+  requireStore();const name=$('storeName').value.trim();if(!name)fail('상점 이름을 입력해 주세요.');
+  const create=!storeExists;if(create&&!confirm('yh202632 경로에 새 상점 데이터를 만들까요? 기존 데이터가 없을 때만 실행됩니다.'))return;
+  if(await mutateStore(next=>{next.storeName=name;},create))announce('상점 이름을 저장했습니다.');
+}
+async function importDahandin(){
+  requireStore();const key=$('dahandinKey').value.trim(),codes=[...new Set($('dahandinRoster').value.match(/\b[A-Za-z0-9]{9}\b/g)||[])];
+  if(!key||!codes.length)fail('다했니 키와 9자리 학생 코드가 포함된 명단을 입력해 주세요.');if(codes.length>100)fail('한 번에 최대 100명까지 불러올 수 있습니다.');
+  const uid=session.uid,generation=epoch,results=[],seenIds=new Set();let failed=0;
+  for(const code of codes){
+    if(!currentUserIs(uid,generation))return;
+    try{
+      const response=await fetch('https://api.dahandin.com/openapi/v1/get/student/total?code='+encodeURIComponent(code),{headers:{'X-API-Key':key},cache:'no-store',referrerPolicy:'no-referrer',signal:AbortSignal.timeout(12000)});if(!response.ok){failed++;continue;}
+      const json=await response.json(),d=json.data,balance=d?.totalCookie??d?.cookie;
+      if(!d||!d.name||d.number==null||typeof balance!=='number'||!Number.isFinite(balance)||balance<0){failed++;continue;}
+      const id=String(d.number);if(seenIds.has(id)){failed++;continue;}seenIds.add(id);results.push({id,name:tidyText(d.name,50),total:balance});
+    }catch{failed++;}
+  }
+  if(!currentUserIs(uid,generation))return;if(!results.length)fail('조회한 학생이 없습니다. 키와 학생 코드를 확인해 주세요. 기존 기록은 그대로입니다.');
+  if(!confirm(results.length+'명의 학생과 기준 잔액을 갱신할까요? 기존 구매 차감은 유지합니다.'+(failed?' 조회 실패 '+failed+'명은 변경하지 않습니다.':'')))return;
+  const ok=await mutateStore(next=>{
+    results.forEach(r=>{const old=next.students.find(s=>s.id===r.id);if(old){old.name=r.name;old.total=r.total;old.current=Math.max(0,r.total-old.spent);}else next.students.push({...r,current:r.total,spent:0});});
+    next.students.sort((a,b)=>Number(a.id)-Number(b.id));if(next.students.length>100)fail('등록 학생 수가 100명을 넘습니다.');
+  });
+  if(ok){$('dahandinRoster').value='';announce(results.length+'명 갱신 완료'+(failed?' · 조회 실패 '+failed+'명은 기존 값 유지':''));}
+}
+async function addManual(){
+  requireStore();const id=String(Number($('manualNumber').value)),name=$('manualName').value.trim(),total=Number($('manualBalance').value);
+  if(!name||!Number.isInteger(Number(id))||Number(id)<1||Number(id)>999||!Number.isInteger(total)||total<0||total>100000)fail('이름·번호·쿠키 수를 확인해 주세요.');
+  const ok=await mutateStore(next=>{if(next.students.some(s=>s.id===id))fail('이미 있는 학생 번호입니다.');if(next.students.length>=100)fail('학생은 최대 100명입니다.');next.students.push({id,name,total,current:total,spent:0});next.students.sort((a,b)=>Number(a.id)-Number(b.id));});
+  if(ok){$('manualName').value='';$('manualNumber').value='';$('manualBalance').value='';announce('학생을 추가했습니다.');}
+}
+async function resetSpent(){requireStore();if(!confirm('다했니에서 실제 차감을 별도로 처리했나요? 이 앱의 전체 구매 차감 누적을 0으로 바꿉니다. 장부는 유지됩니다. 이후 최신 잔액을 다시 가져오세요.'))return;if(await mutateStore(next=>{next.students.forEach(s=>{s.spent=0;s.current=s.total;});}))announce('구매 차감 누적을 초기화했습니다. 다했니 최신 잔액을 다시 가져오세요.');}
+async function cleanLegacy(){requireStore();if(!confirm('Firebase의 apiKey와 studentsText 두 필드를 제거할까요? 학생·메뉴·판매 장부는 유지합니다. 키를 폐기·재발급하는 작업은 다했니에서 별도로 해야 합니다.'))return;if(await mutateStore(()=>{}))announce('이전 인증키와 명단 원문 필드를 제거했습니다. 기존 키도 다했니에서 교체해 주세요.');}
+async function reloadStore(){requireStore();const uid=session.uid,generation=epoch;const snapshot=await get(ref(db,CLASS_PATH));if(!currentUserIs(uid,generation))return;store=normalizeStore(snapshot.val());storeExists=snapshot.exists();menuDraft=null;menuBase=null;renderStore();announce('서버 데이터를 다시 불러왔습니다.');}
+for(const name of ['Sale','Ledger','Stats','Menu'])$('tab'+name).onclick=()=>safe(()=>{requireStore();switchTab(name.toLowerCase());});
+$('studentSearch').oninput=()=>{if(store)renderStudents();};$('ledgerSearch').oninput=()=>{if(store)renderLedger();};
+$('cookieSettings').onclick=()=>safe(()=>{requireStore();$('storeName').value=store.storeName;openDialog('cookieDialog');});
+$('cookieReload').onclick=()=>safe(reloadStore);$('saveStore').onclick=()=>safe(saveStoreName);$('importDahandin').onclick=()=>safe(importDahandin);$('manualAdd').onclick=()=>safe(addManual);$('settleReset').onclick=()=>safe(resetSpent);$('cleanLegacy').onclick=()=>safe(cleanLegacy);
+$('addMenu').onclick=()=>safe(()=>{beginMenuEdit();menuDraft.push({name:'새 간식',price:1,icon:'🍪',enabled:true});renderMenu();});$('saveMenu').onclick=()=>safe(saveMenu);$('discardMenu').onclick=()=>safe(()=>{requireStore();menuDraft=null;menuBase=null;renderMenu();});
+$('cookieBackup').onclick=()=>safe(()=>{requireStore();if(confirm('학생 이름·잔액·장부가 포함된 백업을 이 기기에 저장할까요? 인증키와 명단 원문은 포함하지 않습니다.'))download('쿠키상점_백업_'+new Date().toISOString().slice(0,10)+'.json',{path:CLASS_PATH,exportedAt:new Date().toISOString(),data:store});});
+$('csvExport').onclick=()=>safe(()=>{requireStore();if(!confirm('학생 이름이 포함된 판매 장부를 이 기기에 저장할까요?'))return;const rows=[['일시','담당자','학생번호','학생이름','내역','쿠키','구분'],...store.ledgerHistory.map(r=>[r.timestamp||r.time,r.worker,r.studentId,r.studentName,r.item,r.price,r.type])];download('쿠키상점_장부.csv','\uFEFF'+rows.map(r=>r.map(csvCell).join(',')).join('\r\n'),'text/csv;charset=utf-8');});
+
+setupCommon();
+</script></body></html>
